@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -9,7 +10,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: monospace;
+  font-family: "Roboto Mono", monospace;
   font-size: 3rem;
   color: white;
   background-color: black;
@@ -20,21 +21,31 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 .stopwatchApp .timeDisplay {
   margin: 40px 0 20px;
   display: flex;
   align-items: center;
 }
+.stopwatchApp .buttonWrapper {
+  display: flex;
+  gap: 40px;
+}
 .stopwatchApp .buttonWrapper button {
-  font-size: 2rem;
-  padding: 5px;
+  font-size: 1.5rem;
+  padding: 10px;
   width: 60px;
   height: 60px;
+  border-radius: 50%;
 }
 
 .output {
   margin-top: 20px;
+  height: 70vh;
+  width: auto;
+  overflow-x: scroll;
+  margin-bottom: 10%;
 }
 
 .output div {
@@ -42,4 +53,64 @@ body {
   direction: column;
   gap: 10px;
   font-size: 2rem;
+}
+
+.lapStopwatch {
+  color: #ffa500;
+  background-color: rgba(255, 166, 0, 0.5);
+  border: 2px solid orange;
+  transition: ease-in-out 250ms;
+  cursor: pointer;
+}
+
+.lapStopwatch:hover {
+  color: #e69500;
+  background-color: rgba(230, 150, 0, 0.5);
+  border: 2px solid #e69500;
+}
+
+.lapStopwatch:active {
+  color: #cc8500;
+  background-color: rgba(204, 133, 0, 0.5);
+  border: 2px solid #cc8500;
+}
+
+button.startStopwatch {
+  color: #008000;
+  background-color: rgba(0, 128, 0, 0.5);
+  border: 2px solid green;
+  transition: ease-in-out 250ms;
+  cursor: pointer;
+}
+
+button.startStopwatch:hover {
+  color: #006600;
+  background-color: rgba(0, 102, 0, 0.5);
+  border: 2px solid #006600;
+  cursor: pointer;
+}
+
+button.startStopwatch:active {
+  color: #004d00;
+  background-color: rgba(0, 77, 0, 0.5);
+  border: 2px solid #004d00;
+  cursor: pointer;
+}
+
+.red {
+  color: #ff0000;
+  background-color: rgba(255, 0, 0, 0.5);
+  border: 2px solid red;
+}
+
+.red:hover {
+  color: #e60000;
+  background-color: rgba(230, 0, 0, 0.5);
+  border: 2px solid #e60000;
+}
+
+.red:active {
+  color: #cc0000;
+  background-color: rgba(204, 0, 0, 0.5);
+  border: 2px solid #cc0000;
 }/*# sourceMappingURL=style.css.map */

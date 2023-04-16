@@ -30,17 +30,20 @@ let interval;
 
 function intervalFunction() {
   if (startPause) {
+    lapStopwatch.classList.remove('red');
     lapStopwatch.innerHTML = 'lap';
+
     startPauseIcon.classList.remove("fa-play");
     startPauseIcon.classList.add("fa-pause");
+
     startPause = !startPause;
 
-    console.log("Interval Running");
+    // console.log("Interval Running");
     interval = setInterval(startStopwatchTimer, 10);
 
     function startStopwatchTimer() {
       msec++;
-      console.log(msec);
+      // console.log(msec);
 
       msecDisplay = String(msec).padStart(2, 0);
       secDisplay = String(sec).padStart(2, 0);
@@ -70,11 +73,14 @@ function intervalFunction() {
     }
   } else {
     lapStopwatch.innerHTML = '<i class="fa-solid fa-arrow-rotate-left">';
+    lapStopwatch.classList.add('red');
+
     startPauseIcon.classList.remove("fa-pause");
     startPauseIcon.classList.add("fa-play");
+
     clearInterval(interval);
 
-    console.log("Interval Paused");
+    // console.log("Interval Paused");
     startPause = !startPause;
   }
 }
@@ -95,6 +101,7 @@ function outputLap() {
     sec = 0;
     min = 0;
     hr = 0;
+
     msecSpan.textContent = String(msec).padStart(2, 0);
     secSpan.textContent = String(sec).padStart(2, 0);
     minSpan.textContent = String(min).padStart(2, 0);
