@@ -14,17 +14,10 @@ let sec = 0;
 let min = 0;
 let hr = 0;
 
-let msecDisplay = String(msec).padStart(3, 0);
+let msecDisplay = String(msec).padStart(2, 0);
 let secDisplay = String(sec).padStart(2, 0);
 let minDisplay = String(min).padStart(2, 0);
 let hrDisplay = String(hr).padStart(2, 0);
-
-
-
-// hrSpan.textContent = String(hr).padStart(3, 0);
-// minSpan.textContent = String(min).padStart(2, 0);
-// secSpan.textContent = String(sec).padStart(2, 0);
-// msecSpan.textContent = String(msec).padStart(2, 0);
 
 msecSpan.textContent = msecDisplay;
 secSpan.textContent = secDisplay;
@@ -49,18 +42,14 @@ function intervalFunction() {
       msec++;
       console.log(msec);
 
-      // hrSpan.textContent = String(hr).padStart(3, 0);
-      // minSpan.textContent = String(min).padStart(2, 0);
-      // secSpan.textContent = String(sec).padStart(2, 0);
-      // msecSpan.textContent = String(msec).padStart(2, 0);
-
-      msecDisplay = String(msec).padStart(3, 0);
+      msecDisplay = String(msec).padStart(2, 0);
       secDisplay = String(sec).padStart(2, 0);
       minDisplay = String(min).padStart(2, 0);
       hrDisplay = String(hr).padStart(2, 0);
 
-
-      msecSpan.textContent = msecDisplay;
+      if (msec < 100) {
+        msecSpan.textContent = msecDisplay;
+      }
       secSpan.textContent = secDisplay;
       minSpan.textContent = minDisplay;
       hrSpan.textContent = hrDisplay;
