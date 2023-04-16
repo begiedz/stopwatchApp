@@ -11,6 +11,8 @@ body {
   justify-content: center;
   font-family: monospace;
   font-size: 3rem;
+  color: white;
+  background-color: black;
 }
 
 .stopwatchApp {
@@ -20,15 +22,24 @@ body {
   align-items: center;
 }
 .stopwatchApp .timeDisplay {
+  margin: 40px 0 20px;
   display: flex;
+  align-items: center;
 }
 .stopwatchApp .buttonWrapper button {
   font-size: 2rem;
   padding: 5px;
+  width: 60px;
+  height: 60px;
 }
 
-.output span {
+.output {
+  margin-top: 20px;
+}
+
+.output div {
   display: flex;
   direction: column;
   gap: 10px;
+  font-size: 2rem;
 }/*# sourceMappingURL=style.css.map */

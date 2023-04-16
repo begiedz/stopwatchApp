@@ -3,7 +3,7 @@ const minSpan = document.querySelector(".minute");
 const secSpan = document.querySelector(".second");
 const msecSpan = document.querySelector(".millisecond");
 const startStopwatch = document.querySelector(".startStopwatch");
-const startPauseIcon = document.querySelector(".icon");
+const startPauseIcon = document.querySelector(".starticon");
 const lapStopwatch = document.querySelector(".lapStopwatch");
 const output = document.querySelector(".output");
 
@@ -30,6 +30,7 @@ let interval;
 
 function intervalFunction() {
   if (startPause) {
+    lapStopwatch.innerHTML = 'lap';
     startPauseIcon.classList.remove("fa-play");
     startPauseIcon.classList.add("fa-pause");
     startPause = !startPause;
@@ -38,7 +39,6 @@ function intervalFunction() {
     interval = setInterval(startStopwatchTimer, 10);
 
     function startStopwatchTimer() {
-      // time++;
       msec++;
       console.log(msec);
 
@@ -67,9 +67,9 @@ function intervalFunction() {
         min = 0;
         hr++;
       }
-
     }
   } else {
+    lapStopwatch.innerHTML = '<i class="fa-solid fa-arrow-rotate-left">';
     startPauseIcon.classList.remove("fa-pause");
     startPauseIcon.classList.add("fa-play");
     clearInterval(interval);
@@ -79,14 +79,29 @@ function intervalFunction() {
   }
 }
 
+
+
+// const lapIcon = document.querySelector('.lapIcon');
+
 function outputLap() {
-  const lapDiv = document.createElement('div');
-  lapDiv.textContent = `${hrDisplay}:${minDisplay}:${secDisplay}:${msecDisplay}`;
-  output.appendChild(lapDiv);
+
+  if (!startPause) {
+    const lapDiv = document.createElement('div');
+    lapDiv.textContent = `${hrDisplay}:${minDisplay}:${secDisplay},${msecDisplay}`;
+    output.appendChild(lapDiv);
+  } else {
+
+    msec = 0;
+    sec = 0;
+    min = 0;
+    hr = 0;
+    msecSpan.textContent = String(msec).padStart(2, 0);
+    secSpan.textContent = String(sec).padStart(2, 0);
+    minSpan.textContent = String(min).padStart(2, 0);
+    hrSpan.textContent = String(hr).padStart(2, 0);
+    output.innerHTML = '';
+  }
 }
-
-
-
 
 lapStopwatch.addEventListener("click", outputLap);
 startStopwatch.addEventListener("click", intervalFunction);
